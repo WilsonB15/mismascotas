@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,jQuery,CSS,HTML,RWD,Dashboard">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <title>CoreUI - Open Source Bootstrap Admin Template</title>
+
+    <!-- Icons -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/simple-line-icons.css" rel="stylesheet">
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+
+   
+    <script>
+            
+       function limpiar() {
+         
+          document.getElementById("formclientes").reset();
+           };
+     
+           function camposvacioscliente(){
+             var apellidos = document.getElementById("apellidos").value;
+             var direccion = document.getElementById("direccion").value;
+             var telefono = document.getElementById("telefono").value;
+             var nombrecliente = document.getElementById("nombrecliente").value;
+             var idcliente = document.getElementById("idcliente").value;
+             var email = document.getElementById("email").value;
+             var elementoemail = document.getElementById("divemail");
+             var elementoidcliente = document.getElementById("dividcliente");
+             var elementonombrecliente = document.getElementById("divnombrecliente");
+             var elementotelefono = document.getElementById("divtelefono");
+             var elementodireccion = document.getElementById("divdireccion");
+             var elementoapellidos = document.getElementById("divapellidos");
+     
+             if  (email.length == 0) {
+             
+             elementoemail.className += " has-danger";
+           }else { elementoemail.className ="form-group email";  };
+           
+           if  (apellidos.length == 0) {
+             
+             elementoapellidos.className += " has-danger";
+           }else { elementoapellidos.className ="form-group";  };
+           if  (direccion.length == 0) {
+             
+             elementodireccion.className += " has-danger";
+           }else { elementodireccion.className ="form-group";  };
+           if  (telefono.length == 0) {
+             
+             elementotelefono.className += " has-danger";
+           }else { elementotelefono.className ="form-group";  };
+           if  (nombrecliente.length == 0) {
+             
+             elementonombrecliente.className += " has-danger";
+           }else { elementonombrecliente.className ="form-group";  };
+           if  (idcliente.length == 0) {
+             
+             elementoidcliente.className += " has-danger";
+           }else { elementoidcliente.className ="form-group";  };
+         };
+        
+
+         function camposvaciosfuncionario(){
+            var apellidos = document.getElementById("apellidos").value;
+            var direccion = document.getElementById("direccion").value;
+            var telefono = document.getElementById("telefono").value;
+            var nombrefuncionario = document.getElementById("nombrefuncionario").value;
+            var idfuncionario = document.getElementById("idfuncionario").value;
+            var email = document.getElementById("email").value;
+            var elementoemail = document.getElementById("divemail");
+            var elementoidfuncionario = document.getElementById("dividfuncionario");
+            var elementonombrefuncionario = document.getElementById("divnombrefuncionario");
+            var elementotelefono = document.getElementById("divtelefono");
+            var elementodireccion = document.getElementById("divdireccion");
+            var elementoapellidos = document.getElementById("divapellidos");
+    
+            if  (email.length == 0) {
+            
+            elementoemail.className += " has-danger";
+          }else { elementoemail.className ="form-group email";  };
+          
+          if  (apellidos.length == 0) {
+            
+            elementoapellidos.className += " has-danger";
+          }else { elementoapellidos.className ="form-group";  };
+          if  (direccion.length == 0) {
+            
+            elementodireccion.className += " has-danger";
+          }else { elementodireccion.className ="form-group";  };
+          if  (telefono.length == 0) {
+            
+            elementotelefono.className += " has-danger";
+          }else { elementotelefono.className ="form-group";  };
+          if  (nombrefuncionario.length == 0) {
+            
+            elementonombrefuncionario.className += " has-danger";
+          }else { elementonombrefuncionario.className ="form-group";  };
+          if  (idfuncionario.length == 0) {
+            
+            elementoidfuncionario.className += " has-danger";
+          }else { elementoidfuncionario.className ="form-group";  };
+        };
+       
+ function camposvaciosmascota(){ 
+          var nombremascota = document.getElementById("nombremascota").value;
+          var elementonombremascota = document.getElementById("divnombremascota");
+          
+          if  (nombremascota.length == 0) {
+             
+             elementonombremascota.className += " has-danger";
+           }else { elementonombremascota.className ="form-group";  };
+
+
+         };
+
+         function camposvaciosmascota(){
+             var idmascota = document.getElementById("idmascota").value;
+             var nombremascota = document.getElementById("nombremascota").value;
+             var idespecie = document.getElementById("idespecie").value;
+             var idraza = document.getElementById("idraza").value;
+             var idcliente = document.getElementById("idcliente").value;
+             var fechanac = document.getElementById("fechanac").value;
+             var elementofechanac = document.getElementById("divfechanac");
+             var elementoidcliente = document.getElementById("dividcliente");
+             var elementoidraza = document.getElementById("dividraza");
+             var elementoidespecie = document.getElementById("dividespecie");
+             var elementonombremascota = document.getElementById("divnombremascota");
+             var elementoidmascota = document.getElementById("dividmascota");
+     
+             if  (fechanac == null) {
+             
+             elementofechanac.className += " has-danger";
+           }else { elementofechanac.classfechanacName ="form-group";  };
+           
+           if  (idmascota.length == 0) {
+             
+             elementoidmascota.className += " has-danger";
+           }else { elementoidmascota.className ="form-group";  };
+           if  (nombremascota.length == 0) {
+             
+             elementonombremascota.className += " has-danger";
+           }else { elementonombremascota.className ="form-group";  };
+           if  (idespecie.length == 0) {
+             
+             elementoidespecie.className += " has-danger";
+           }else { elementoidespecie.className ="form-group";  };
+           if  (idraza.length == 0) {
+             
+             elementoidraza.className += " has-danger";
+           }else { elementoidraza.className ="form-group";  };
+           if  (idcliente.length == 0) {
+             
+             elementoidcliente.className += " has-danger";
+           }else { elementoidcliente.className ="form-group";  };
+         };
+       //window.onload = limpiar;
+     </script>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('datCtrl', function($scope) {
+      $scope.today = new Date();
+  });
+  </script>
+
+  
+
+
+
+</head>
+
+<!-- BODY options, add following classes to body to change options
+
+// Header options
+1. '.header-fixed'					- Fixed Header
+
+// Sidebar options
+1. '.sidebar-fixed'					- Fixed Sidebar
+2. '.sidebar-hidden'				- Hidden Sidebar
+3. '.sidebar-off-canvas'		- Off Canvas Sidebar
+4. '.sidebar-compact'				- Compact Sidebar Navigation (Only icons)
+
+// Aside options
+1. '.aside-menu-fixed'			- Fixed Aside Menu
+2. '.aside-menu-hidden'			- Hidden Aside Menu
+3. '.aside-menu-off-canvas'	- Off Canvas Aside Menu
+
+// Footer options
+1. 'footer-fixed'						- Fixed footer
+
+-->
+
+<body class="app">
+    <!-- Enable bootstrap 4 theme -->
+    <script>
+        window.__theme = 'bs4';
+    </script>
+    <!-- App Loading... -->
+</body>
+
+</html>

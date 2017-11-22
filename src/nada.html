@@ -1,0 +1,42 @@
+
+           function camposvaciosfuncionario(){
+            var apellidos = document.getElementById("apellidos").value;
+            var direccion = document.getElementById("direccion").value;
+            var telefono = document.getElementById("telefono").value;
+            var nombrefuncionario = document.getElementById("nombrefuncionario").value;
+            var idfuncionario = document.getElementById("idfuncionario").value;
+            var email = document.getElementById("email").value;
+            var elementoemail = document.getElementById("divemail");
+            var elementoidfuncionario = document.getElementById("dividfuncionario");
+            var elementonombrefuncionario = document.getElementById("divnombrefuncionario");
+            var elementotelefono = document.getElementById("divtelefono");
+            var elementodireccion = document.getElementById("divdireccion");
+            var elementoapellidos = document.getElementById("divapellidos");
+    
+            if  (email.length == 0) {
+            
+            elementoemail.className += " has-danger";
+          }else { elementoemail.className ="form-group email";  };
+          
+          if  (apellidos.length == 0) {
+            
+            elementoapellidos.className += " has-danger";
+          }else { elementoapellidos.className ="form-group";  };
+          if  (direccion.length == 0) {
+            
+            elementodireccion.className += " has-danger";
+          }else { elementodireccion.className ="form-group";  };
+          if  (telefono.length == 0) {
+            
+            elementotelefono.className += " has-danger";
+          }else { elementotelefono.className ="form-group";  };
+          if  (nombrefuncionario.length == 0) {
+            
+            elementonombrefuncionario.className += " has-danger";
+          }else { elementonombrefuncionario.className ="form-group";  };
+          if  (idfuncionario.length == 0) {
+            
+            elementoidfuncionario.className += " has-danger";
+          }else { elementoidfuncionario.className ="form-group";  };
+        };
+       

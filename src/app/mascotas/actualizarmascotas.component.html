@@ -1,0 +1,82 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-header">
+          ACTUALIZAR DATOS DE MASCOTAS
+        </div>
+        <div class="card-block">
+          <form action="" method="post" >
+              
+              
+            <div class="form-group" id="dividmascota" >
+              <strong>Identificación</strong>
+              <input type="text"onkeypress="camposvaciosmascota()" id="idmascota" #idmascota="ngModel" name="idmascota" [(ngModel)]="mascota.idmascota"  class="form-control" placeholder="Identificación"  required pattern="[0-9]{8,10}">
+              <span *ngIf="idmascota.touched && !idmascota.valid" class="help-block" >Solo números de 8 a 10 dígitos.</span>
+            </div>
+            <div class="form-group" id="divnombremascota">
+           
+              <strong>Nombre</strong>
+              <input type="text"  onkeypress="camposvaciosmascota()" id="nombremascota" name="nombremascota"  #nombremascota="ngModel" class="form-control" [(ngModel)]="mascota.nombremascota"  placeholder="Nombre" required pattern="[a-zA-Z]+">
+              <span *ngIf="nombremascota.touched && !nombremascota.valid" class="help-block" >Solo letras</span>
+                    <!-- onkeypress="camposvaciosmascota()" -->
+            </div>
+            <div class="form-group" id="dividcliente" >
+              <strong>Dueño</strong>
+              <select id="idcliente"  onchange="camposvaciosmascota()" name="idcliente" [(ngModel)]="mascota.idcliente" class="form-control"  >
+                <option selected value=''> -- Seleccione --</option>
+                <option *ngFor="let cliente of clientes"  value="{{cliente.id}}">{{cliente.idcliente}} - {{cliente.nombrecliente}}</option>
+              </select>
+            </div>
+            <div class="form-group" id="dividespecie">
+              <strong>Especie</strong>
+              <select id="idespecie" onchange="camposvaciosmascota()" name="idespecie" (change)="getRazasxEspecie($event.target.value)" [(ngModel)]="mascota.idespecie" class="form-control"   >
+                  <option selected value=''> -- Seleccione --</option>
+                <option *ngFor="let especie of especies"  value="{{especie.id}}">{{especie.nombreespecie}}</option>
+                
+              </select>
+            </div>
+            <div class="form-group" id="dividraza">
+              <strong>Raza</strong>
+              
+              <select id="idraza" onchange="camposvaciosmascota()" name="idraza" [(ngModel)]="mascota.idraza" class="form-control"   >
+                  <option selected value=''> -- Seleccione --</option>
+                  <option *ngFor="let raza of razas"  value="{{raza.id}}" >{{raza.nombreraza}}</option>
+              </select>
+            </div>
+            <div class="form-group" id="divfechanac">
+              <strong>Fecha Nacimiento</strong>
+              <input type="date"   onkeypress="camposvaciosmascota()"  id="fechanac" name="fechanac" [(ngModel)]="mascota.fechanac" class="form-control"  placeholder="Email">
+            </div>
+            <div class="form-group">
+              <strong>Sexo</strong>
+              <br>
+              <label class="radio-inline" for="inline-radio1" >
+                <input type="radio" id="m" name="sexo" [(ngModel)]="mascota.sexo" value="M" ng-checked="true" > Macho
+              </label>
+              <label class="radio-inline" for="inline-radio2">
+                <input type="radio" id="f" name="sexo"[(ngModel)]="mascota.sexo"  value="H"   > Hembra
+              </label>
+                       
+             </div>
+          
+            
+            
+          </form>
+
+        </div>
+        <div class="card-footer">
+          <button type="submit" [disabled]="!nombremascota.valid || !idmascota.valid" onclick="camposvaciosmascota()" (click)="update(mascota.id)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          <button type="reset" id="limpiar" name="limpiar"  (click)="goBack()" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Volver</button>
+        </div>
+      </div>
+    </div>
+ 
+
+   
+   
+    
+  </div>
+  <!--/.row-->
+  
+</div>

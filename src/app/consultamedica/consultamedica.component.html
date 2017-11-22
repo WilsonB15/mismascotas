@@ -1,0 +1,118 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            REGISTRO DE CONSULTA MÉDICA
+          </div>
+          <div class="card-block">
+                
+                      <div class="form-group row">
+                        <div class="col-md-9">
+                          <div class="input-group">
+                              
+                            <input type="text" id="idmascota2" [(ngModel)]="mascota.idmascota" name="idmascota2" class="form-control" placeholder="ID Mascota">
+                            <span class="input-group-btn">
+                            <button type="button" (click)="get1mascota(mascota.idmascota); " class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                            </span>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngFor="let mascota of mascotas">
+                          <div class="form-group row">
+                              <div class="col-md-4">
+                                  <strong>Nombre Mascota</strong>                                  
+                                  <input type="text"  id="nombremascota" name="nombremascota"  #nombremascota="ngModel" class="form-control" [(ngModel)]="mascota.nombremascota"   value="{{mascota.nombremascota}}"  placeholder="Nombre" disabled pattern="[a-zA-Z]+">
+                                </div>
+                              <div class="col-md-4">
+                                  <strong>Raza</strong>
+                                  <input type="text"  id="idraza" name="idraza"  value="{{raza.nombreraza}}" class="form-control" placeholder="Nombre" disabled pattern="[a-zA-Z]+">
+                                </div>
+                                <div class="col-md-4">
+                                    <strong>Sexo</strong>
+                                    <input type="text"  id="sexo" name="sexo"  #sexo="ngModel" class="form-control" [(ngModel)]="mascota.sexo"   value="{{mascota.sexo}}"  placeholder="Nombre" disabled pattern="[a-zA-Z]+">
+                                  </div>
+                                  <div class="col-md-4">
+                                      <strong>Fecha de Nacimiento</strong>
+                                      <input type="text"  id="fechanac" name="fechanac"  #fechanac="ngModel" class="form-control" [(ngModel)]="mascota.fechanac"   value="{{mascota.fechanac}}"  placeholder="Nombre" disabled pattern="[a-zA-Z]+">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>Especie</strong>
+                                        <input type="text"  id="especie" name="especie"   class="form-control"    value="{{especie.nombreespecie}}"  placeholder="Nombre" disabled pattern="[a-zA-Z]+">
+                                      </div>
+                                      <div class="col-md-4">
+                                          <strong>Dueño</strong>
+                                          <input type="text"  id="idcliente" name="idcliente"  class="form-control"   value="{{cliente.nombrecliente}}"  placeholder="Nombre" disabled pattern="[a-zA-Z]+">
+                                        </div>
+                            </div> 
+                          
+                            <form action="" method="post" >
+                              
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <strong>Fecha</strong>                                  
+                                        <input type="date"  id="fechaconsulta" name="fechaconsulta"  #fechaconsulta="ngModel" class="form-control" [(ngModel)]="historias.fechaconsulta"    placeholder="Nombre" >
+                                      </div>
+                                      <div class="col-md-4">
+                                          <strong>Tipo de consulta</strong>  
+                                          <select id="tipoconsulta" name="tipoconsulta" [(ngModel)]="historias.tipoconsulta" class="form-control">
+                                              <option selected value=''> -- Seleccione --</option>
+                                              <option value="urgencias">Urgencia</option>
+                                              <option value="control" >Control</option>
+                                              
+                                          </select>                               
+                                        </div>
+                                      </div>
+                              
+                                
+                              <div class="form-group" id="dividmascota" >
+                                <strong>Motivo</strong>
+                                <textarea   id="motivo" #motivo="ngModel" name="motivo" [(ngModel)]="historias.motivo"  class="form-control" placeholder="Ingresar motivo de consulta"  required pattern="[0-9a-zA-Z]{1,140}">
+                                  </textarea> 
+                                  <span *ngIf="motivo.touched && !motivo.valid" class="help-block" >Max 140 dígitos.</span>
+                              </div>
+                              <div class="form-group" id="dividmascota" >
+                                  <strong>Diagnostico</strong>
+                                  <textarea   id="diagnostico" #diagnostico="ngModel" name="diagnostico" [(ngModel)]="historias.diagnostico"  class="form-control" placeholder="Ingresar diagnostico"  required pattern="[0-9a-zA-Z]{1,140}">
+                                    </textarea> 
+                                    <span *ngIf="diagnostico.touched && !diagnostico.valid" class="help-block" >Max 140 dígitos.</span>
+                                </div>
+                                <div class="form-group" id="dividmascota" >
+                                    <strong>Tratamiento</strong>
+                                    <textarea   id="tratamiento" #tratamiento="ngModel" name="tratamiento" [(ngModel)]="historias.tratamiento"  class="form-control" placeholder="Indique un tratamiento"  required pattern="[0-9a-zA-Z]{1,140}">
+                                      </textarea> 
+                                      <span *ngIf="tratamiento.touched && !tratamiento.valid" class="help-block" >Max 140 dígitos.</span>
+                                  </div>
+                                
+                            </form>
+
+                           
+                                <button type="submit" [disabled]="!motivo.valid || !tratamiento.valid" onclick="camposvaciosmascota()" (click)="create()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                                <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                             
+                          </div>
+                          
+                          
+
+                            
+                          
+                         
+                        
+                      
+                      
+           
+          </div>
+          
+        </div>
+      </div>
+      
+  
+     
+     
+      
+    </div>
+    <!--/.row-->
+    
+  </div>
+  

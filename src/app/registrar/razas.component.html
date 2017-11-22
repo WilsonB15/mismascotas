@@ -1,0 +1,45 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-header">
+          REGISTRO DE RAZAS
+        </div>
+        <div class="card-block">
+          <form action="" method="post">
+            
+            <div class="form-group">
+              <strong>Especie</strong>
+              <select id="idespecie" name="idespecie" class="form-control"   [(ngModel)]="raza.idespecie" >
+                <option selected value="">-- Seleccione --</option>
+                <option *ngFor="let especie of especies"  value="{{especie.id}}">{{especie.nombreespecie}}</option>
+                
+               <!-- <option *ngFor="let especie of especies" value="{{especie.id}}" (click)="cargarrazas(especie.id)">{{especie.id}} - {{especie.nombreespecie}}</option>
+               -->
+                </select>
+              <span class="help-block">Seleccione primero una raza. </span> 
+            </div>
+            <div class="form-group">
+              <strong>Nombre</strong>
+              <input type="text" id="nombreraza" name="nombreraza" class="form-control"  [(ngModel)]="raza.nombreraza" placeholder="Nombre de raza">
+              <span class="help-block">Ingrese nombre de especie. </span> 
+            </div>
+            
+            
+             
+            
+          </form>
+        </div>
+        <div class="card-footer">
+          <button type="submit" (click)="create()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        </div>
+      </div>
+    </div>
+   
+   
+    
+  </div>
+  <!--/.row-->
+  
+</div>

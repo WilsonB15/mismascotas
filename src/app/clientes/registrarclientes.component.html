@@ -1,0 +1,75 @@
+
+   
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-header">
+          REGISTRO DE CLIENTES
+        </div>
+        <div class="card-block">
+          <form action="" method="post" id="formclientes"   >
+            <div class="form-group" id="dividcliente">
+              <strong>Identificación</strong>
+              <input type="text" #idcliente="ngModel" onkeypress="camposvacioscliente()" id="idcliente" name="idcliente" [(ngModel)]="cliente.idcliente" class="form-control" placeholder="Identificación" required pattern="[0-9]{8,10}">
+              <span *ngIf="idcliente.touched && !idcliente.valid" class="help-block" >Solo números de 8 a 10 dígitos.</span>
+              
+            </div>
+            <div class="form-group" id="divnombrecliente">
+              <strong>Nombre</strong>
+              <input type="text" #nombrecliente="ngModel" onkeypress="camposvacioscliente()" id="nombrecliente" name="nombrecliente" class="form-control"  [(ngModel)]="cliente.nombrecliente" placeholder="Nombre" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{3,20}">
+              <span *ngIf="nombrecliente.touched && !nombrecliente.valid" class="help-block" >Solo letras.</span>
+              
+            </div>
+            <div class="form-group" id="divapellidos">
+              <strong>Apellidos</strong>
+              <input type="text" #apellidos="ngModel"  onkeypress="camposvacioscliente()" id="apellidos" name="apellidos" class="form-control"  [(ngModel)]="cliente.apellidos" placeholder="Apellidos" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,20}">              
+              <span *ngIf="apellidos.touched && !apellidos.valid" class="help-block" >Solo letras.</span>
+              
+            </div>
+            <div class="form-group" id="divtelefono">
+              <strong>Teléfono</strong>
+              <input type="text" #telefono="ngModel" onkeypress="camposvacioscliente()" id="telefono" name="telefono" class="form-control"  [(ngModel)]="cliente.telefono" placeholder="Teléfono" required pattern="[0-9]{7,10}">
+              <span *ngIf="telefono.touched && !telefono.valid" class="help-block" >Solo numeros.</span>
+              
+            </div>
+            <div class="form-group" id="divdireccion">
+              <strong>Dirección</strong>
+              <input type="text" #direccion="ngModel" onkeypress="camposvacioscliente()" id="direccion" name="direccion" class="form-control"  [(ngModel)]="cliente.direccion" required placeholder="Dirección" required pattern="[a-zA-Z#?0-9\s]+" >
+              <span *ngIf="direccion.touched && !direccion.valid" class="help-block" >Solo letras y numeros, puede agregar #. Ex: Calle 123B # 123 123.</span>
+              
+            </div>
+            <div class="form-group" id="divemail" >
+              <strong>E-mail</strong>
+              <input type="email" #email="ngModel" onkeypress="camposvacioscliente()" id="email" name="email" class="form-control" required [(ngModel)]="cliente.email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+              <span *ngIf="email.touched && !email.valid" class="help-block" >Ex: nombre@dominio.com</span>
+              
+            </div>
+            <div class="form-group ">
+              <strong>Sexo</strong>
+              <br>
+              <label class="radio-inline " for="inline-radio1">
+                <input type="radio" id="m" name="sexo" value="M" [(ngModel)]="cliente.sexo" > Masculino
+              </label>
+              <label class="radio-inline" for="inline-radio2">
+                <input type="radio" id="f" name="sexo" value="F" [(ngModel)]="cliente.sexo" > Femenino
+              </label>
+                       
+             </div>
+            
+          </form>
+        </div>
+        <div class="card-footer">
+            
+          <button type="submit"  (click)="create()" [disabled]="!nombrecliente.valid || !idcliente.valid || !telefono.valid || !apellidos.valid || !email.valid || !direccion.valid" onclick="camposvacioscliente()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+        </div>
+      </div>
+    </div>
+   
+   
+    
+  </div>
+  <!--/.row-->
+  
+</div>
+
