@@ -1,1 +1,96 @@
-﻿
+﻿<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            CONSULTAR HISTORIAs CLíNICAS
+          </div>
+          <div class="card-block">
+                
+                      <div class="form-group row">
+                        <div class="col-md-9">
+                          <div class="input-group">
+                              
+                            <input type="text" id="idmascota2" [(ngModel)]="mascota.idmascota" name="idmascota2" class="form-control" placeholder="ID Mascota">
+                            <span class="input-group-btn">
+                            <button type="button" (click)="gethistorias(mascota.idmascota); " class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                            </span>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="mostrarhistorias"> 
+                          <table id="tablahistorias"  class="row-border hover">
+                              <thead>
+                                <tr>
+                                  <th>ID Mascota</th>
+                                  <th>Tipo de consulta</th>
+                                  <th>Motivo</th>
+                                  <th>Diagnostico</th>
+                                  <th>Tratamiento</th>
+                                  <th>Acción</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let historias of historiass">
+                                      <td>{{historias.idmascota}}</td>
+                                      <td>{{historias.tipoconsulta}}</td>
+                                      <td>{{historias.motivo}}</td>
+                                      <td>{{historias.diagnostico}}</td>
+                                      <td>{{historias.tratamiento}}</td>
+                                      <td>
+                                          <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="myModal.show()" (click)="GetHistoria(historias.id)">
+                                              Launch demo modal
+                                            </button>
+                                       <!-- <button [routerLink]="['../actualizar',historias.id]" >Detalles</button> -->
+                                      </td>
+                                     
+                                </tr>
+                                
+                              </tbody>
+                            </table>
+                        
+                        
+                          </div>
+                          
+                          
+                         
+                        
+                      
+                      
+           
+          </div>
+          
+        </div>
+      </div>
+      
+  
+     
+     
+      
+    </div>
+    <!--/.row-->
+    
+  </div>
+  
+  <div bsModal id="detallehistoria" #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"  >
+            <p>{{historia.tipoconsulta}}</p>
+            <p>{{historia.motivo}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
