@@ -85,10 +85,13 @@ export class RegistrarMascotasComponent implements OnInit{
         //this.getRazasxEspecie(4);
         //probar
         
+        
        // console.log(today);
         //probar *     
       }
-
+      gotoconsultar() {
+        window.location.href='#/mascotas/consultar';
+    }
      // http://localhost:8080/api/Raza?idespecie=3
   
     getAllEspecies(){
@@ -161,6 +164,8 @@ export class RegistrarMascotasComponent implements OnInit{
            showConfirmButton: false,
            timer: 600
          });
+
+         
            
        }
        else { 
@@ -176,6 +181,7 @@ export class RegistrarMascotasComponent implements OnInit{
                 
               });
             console.log(result);
+            this.gotoconsultar();
         },
         error => {
             this.errorMessage = <any>error;
