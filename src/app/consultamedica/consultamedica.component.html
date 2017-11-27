@@ -73,7 +73,7 @@
                                   <span *ngIf="motivo.touched && !motivo.valid" class="help-block" >Max 140 dígitos.</span>
                               </div>
                               <div class="form-group" id="dividmascota" >
-                                  <strong>Diagnostico</strong>
+                                  <strong>Diagnóstico</strong>
                                   <textarea   id="diagnostico" #diagnostico="ngModel" name="diagnostico" [(ngModel)]="historias.diagnostico"  class="form-control" placeholder="Ingresar diagnostico"  required pattern="[0-9a-zA-Z]{1,140}">
                                     </textarea> 
                                     <span *ngIf="diagnostico.touched && !diagnostico.valid" class="help-block" >Max 140 dígitos.</span>

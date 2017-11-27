@@ -28,7 +28,7 @@
               
             </div>
             <div class="form-group" id="divtelefono">
-              <strong>Telefono</strong>
+              <strong>Teléfono</strong>
               <input type="text" #telefono="ngModel" onkeypress="camposvacioscliente()" id="telefono" name="telefono" class="form-control"  [(ngModel)]="cliente.telefono" placeholder="Telefono" required pattern="[0-9]{7,10}">
               <span *ngIf="telefono.touched && !telefono.valid" class="help-block" >Solo numeros.</span>
               
