@@ -41,7 +41,9 @@ import { Location } from '@angular/common';
         this.location.back();
     }
 
-
+    gotoconsultar() {
+      window.location.href='#/funcionarios/consultar';
+  }
 
     create(){
           
@@ -68,6 +70,7 @@ import { Location } from '@angular/common';
               
             });
               console.log(result);
+              this.gotoconsultar();
           },
           error => {
               this.errorMessage = <any>error;
