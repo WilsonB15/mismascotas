@@ -36,6 +36,9 @@ import 'rxjs/add/operator/catch';
   
     constructor(private _http: Http){}
 
+    gotoconsultar() {
+      window.location.href='#/clientes/consultar';
+  }
 
 
     create(){
@@ -63,6 +66,7 @@ import 'rxjs/add/operator/catch';
               
             });
               console.log(result);
+              this.gotoconsultar();
           },
           error => {
              this.errorMessage = <any>error;
