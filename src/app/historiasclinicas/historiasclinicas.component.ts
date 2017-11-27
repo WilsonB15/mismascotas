@@ -5,6 +5,7 @@ import {Http, Response, Headers} from "@angular/http";
 import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
 import swal from 'sweetalert2';
+import { Logs } from 'selenium-webdriver';
 
 
 
@@ -48,7 +49,7 @@ export class HistoriasClinicasComponent implements OnInit{
       foto :  '',
   }
  
-  public historias: any={
+  public historia: any={
     idmascota: '',
     idcita:  '',
     motivo:  '',
@@ -57,6 +58,18 @@ export class HistoriasClinicasComponent implements OnInit{
     tipoconsulta:  '',
     fechaconsulta:  '',
 
+    
+
+
+} 
+public Unhistoria: any={
+    idmascota: '',
+    idcita:  '',
+    motivo:  '',
+    diagnostico:  '',
+    tratamiento:  '',
+    tipoconsulta:  '',
+    fechaconsulta:  '',
 
 } 
 
@@ -81,7 +94,8 @@ export class HistoriasClinicasComponent implements OnInit{
       motivo:  '';
       diagnostico:  '';
       tratamiento:  '';
-      historia = [];
+      Unhistorias = [];
+      historias = [];
       historiass = [];
       clientes = [];
       especies = [];
@@ -98,52 +112,37 @@ export class HistoriasClinicasComponent implements OnInit{
   ngOnInit(){
   
   }
-
   get1mascota(id:number){
-    this.mascotas.length = 0;    
-    console.log(this.mascotas.length);
-    this._http.get(`${this.urlBase}/api/Mascota?idmascota=${id}`).map(res => res.json()).subscribe(
-      result => {
-         this.mostrarhistorias = true; 
-          this.mascotas = result;
-          if (this.mascotas.length==1) {
-          console.log(this.mascotas);
-                   
-            
-
-           // this.historias.iddmascota = this.mascota.idmascota;
-            
-          console.log('especie : '+this.mascotas.length);
-                    
-        }else{
-        alert("Mascota no existe");
-        this.mascotas.length = 0;
-        
-      }
-            
-              
-      },
-      error => {
-          this.errorMessage = <any>error;
-           
-          if(this.errorMessage !== null){
-              console.log(this.errorMessage);
-              alert("Error en la petición");
+    
+        this._http.get(`${this.urlBase}/api/Mascota?idmascota=${id}`).map(res => res.json()).subscribe(
+          result => {
+                  this.mascotas = result
+                  console.log(this.mascotas);                  
+                  console.log("mascota", this.mascotas[0].nombremascota);
+                  
+                  
+          },
+          error => {
+              this.errorMessage = <any>error;
+               
+              if(this.errorMessage !== null){
+                  console.log(this.errorMessage);
+                  alert("Error en la petición");
+              }
           }
+        );
       }
-    );
-  
-}
 
 
 GetHistoria(id:number){
     console.log(id);
         this._http.get(`${this.urlBase}/api/Historia/${id}`).map(res => res.json()).subscribe(
           result => {
-                  this.historia = result;
-                  console.log(this.historia);
+                  this.Unhistoria = result
+                  console.log("historias", this.Unhistoria);
+                  this.get1mascota(this.Unhistoria.idmascota);
                   
-                 
+                  
                   
                   
           },
@@ -180,8 +179,11 @@ gethistorias(id:number){
             pagingType: 'full_numbers'
           };
         
-
+          
            // this.historias.iddmascota = this.mascota.idmascota;
+          
+           
+           
            
                     
         }else{

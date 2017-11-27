@@ -3,7 +3,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            CONSULTAR HISTORIAs CLíNICAS
+            CONSULTAR HISTORIAS CLíNICAS
           </div>
           <div class="card-block">
                 
@@ -26,9 +26,9 @@
                                   <th>ID Mascota</th>
                                   <th>Tipo de consulta</th>
                                   <th>Motivo</th>
-                                  <th>Diagnostico</th>
-                                  <th>Tratamiento</th>
-                                  <th>Acción</th>
+                                  <th>Fecha consulta</th>
+                                  
+                                  <th>Detalles</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -36,11 +36,11 @@
                                       <td>{{historias.idmascota}}</td>
                                       <td>{{historias.tipoconsulta}}</td>
                                       <td>{{historias.motivo}}</td>
-                                      <td>{{historias.diagnostico}}</td>
-                                      <td>{{historias.tratamiento}}</td>
+                                      <td>{{historias.fechaconsulta}}</td>
+                                      
                                       <td>
                                           <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="myModal.show()" (click)="GetHistoria(historias.id)">
-                                              Launch demo modal
+                                              Detalles
                                             </button>
                                        <!-- <button [routerLink]="['../actualizar',historias.id]" >Detalles</button> -->
                                       </td>
@@ -77,19 +77,22 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Modal title</h4>
+            <h4 class="modal-title">Detalles de consulta</h4>
             <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body"  >
-            <p>{{historia.tipoconsulta}}</p>
-            <p>{{historia.motivo}}</p>
+          <div class="modal-body">
+            <b>Fecha consulta: </b><label for=""> {{Unhistoria.fechaconsulta}} </label><br>
+            <b>Tipo de consulta: </b><label for=""> {{Unhistoria.tipoconsulta}} </label><br>
+            <b>ID Mascota: </b><label for=""> {{Unhistoria.idmascota}} </label><br>
+            <b>Nombre Mascota: </b><label  *ngFor="let mascota of mascotas"> {{mascota.nombremascota}}</label><br>
+            <b>Motivo: </b><label for=""> {{Unhistoria.motivo}} </label>  <br>
+            <b>Diagnostico: </b><label for=""> {{Unhistoria.diagnostico}} </label>   <br>         
+            <b>Tratamiento: </b><label for=""> {{Unhistoria.tratamiento}} </label><br>
+
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+         
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
