@@ -214,7 +214,45 @@ getOneRaza(id:number){
     );
   
 }
+
+create(){
+    //  if(this.mascota.nombremascota.invalid == true) {
+ if (this.mascota.idmascota == null  ) {
+
+   swal({
+     position: 'bottom',
+     type: 'error',
+     title: 'Complete todos los campos',
+     showConfirmButton: false,
+     timer: 600
+   });
      
+ }
+ else { 
+  
+    this.historias.idmascota = this.mascota.idmascota;
+this._http.post(`${this.urlBase}/api/Historia/`,this.historias).map(res => res.json()).subscribe(
+    
+    result => {
+      swal({
+          position: 'center',
+          type: 'success',
+          title: 'Mascota registrada correctamente',
+          showConfirmButton: true,
+          
+        });
+      console.log(result);
+  },
+  error => {
+      console.log(this.historias);
+      this.errorMessage = <any>error;
+       
+      if(this.errorMessage !== null){
+          console.log(this.errorMessage);
+          alert(error._body);
+      }
+  }
+);      
   
 }
 }
